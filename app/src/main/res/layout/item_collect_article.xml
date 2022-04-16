@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="vo"
+                type="io.github.kaya.wandroid.vo.ArticleVO" />
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3f3f3f"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/article_title_color"
+                    android:textSize="16dp"
+                    app:html="@{vo.fixedTitle}"
+                    app:select="@{vo.read}"
+                    tools:text="     test" />
+
+            <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/ic_logo_csdn"
+                    app:imageId="@{vo.icon}" />
+        </FrameLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="8dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vo.author}"
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:text="username" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/bg_tag"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@{vo.superChapterName}"
+                    android:textColor="@color/text_color"
+                    android:textSize="12sp"
+                    app:gone="@{vo.superEmpty}"
+                    tools:text="tag1" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/bg_tag"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@{vo.chapterName}"
+                    android:textColor="@color/text_color"
+                    android:textSize="12sp"
+                    app:gone="@{vo.chapterNameEmpty}"
+                    tools:text="tag2" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@{vo.niceDate}"
+                    android:textColor="@color/text_color"
+                    android:textSize="14sp"
+                    tools:text="今天" />
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="10dp"
+                android:background="#2f2f2f" />
+    </LinearLayout>
+</layout>
